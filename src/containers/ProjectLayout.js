@@ -170,7 +170,6 @@ flex-flow: row wrap;
 
 
 let GraduatedDurham = styled.div`
-  opacity: 0.8;
   transform: translateY(50px) rotateZ(15deg)  ;
   width: 45%;
   position: relative;
@@ -222,7 +221,7 @@ let Polaroid = styled.div`
     left: 0;
     text-align: center;
     color: ${colors.black};
-    filter: blur(0.1px) drop-shadow(4px 1px 1px #00000022);
+    filter:drop-shadow(4px 1px 1px #00000022);
   }
 `
 
