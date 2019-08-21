@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import Project from "./Project";
 import SmallProject from "./SmallProject";
 import Page from "./Page";
@@ -8,6 +8,7 @@ import AboutContent from "./AboutPage";
 
 import {TiSocialGithubCircular, TiSocialLinkedinCircular,TiMail } from "react-icons/ti";
 import {colors} from "../common/Colors";
+import {IoIosArrowDown} from "react-icons/io";
 
 import Logo from "../logo.svg";
 import NodeJS from "../nodejs.svg";
@@ -36,8 +37,10 @@ let MorikinIcons = [{src: Logo,alt: "React Logo"},{src: NodeJS, alt: "NodeJS Log
 let JCampIcons = [{src: Jquery,alt: "Jquery Logo"},{src: NodeJS,alt: "NodeJS Logo"},{src: MongoDB,alt: "MongoDB Logo"},{src: Html5,alt: "HTML5 Logo"},{src: CSS3,alt: "CSS3 Logo"}]
 
 function ProjectLayout(props){
+  let isClosed =  Object.values(props).includes(true)
   return(
     <ProjectLayoutStyle>
+    {!isClosed &&  <ClickMe>  <IoIosArrowDown /><AlignmentCorrect> Click here </AlignmentCorrect>   <IoIosArrowDown /> </ClickMe>}
         <Page title="Full Stack Projects"
               backgroundColor= {colors.lightBlue}
               openAction = {() => props.openPage("pageOne")}
@@ -49,7 +52,7 @@ function ProjectLayout(props){
             <p> Fully Responsive design </p>
             <p> RESTful API </p>
           </Project>
-          <Project title="JCamp" imgSrc={JCamp} icons={JCampIcons} links={{github: "https://github.com/anthoasho/JCamp", demo: "https://j-camp.herokuapp.com/"}}>
+          <Project title="JCamp" imgSrc={JCamp} backgroundPosition="center" icons={JCampIcons} links={{github: "https://github.com/anthoasho/JCamp", demo: "https://j-camp.herokuapp.com/"}}>
             <p> FullStack Web Application </p>
             <p> Hosted on Heroku </p>
             <p> MVC Technology Express.js</p>
@@ -97,6 +100,44 @@ function ProjectLayout(props){
   )
 
 }
+
+
+const bounce = keyframes`
+  0% {
+    transform: translateY(0px);
+  }
+
+  20% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+`;
+
+let ClickMe = styled.div`
+ font-size: 18px;
+ position: absolute;
+ right: 0;
+ top: -20px;
+ color: white;
+ animation: ${bounce} 2s linear infinite;
+ display: flex;
+ align-items: center;
+ width: 200px;
+ opacity: 0.6;
+ justify-content: space-around;
+ font-family: 'Kaushan Script', cursive;
+`
+let AlignmentCorrect = styled.div`
+  transform: translateY(-15px);
+`
+
+
+
 
 let StyledA = styled.a`
   width: 300px;

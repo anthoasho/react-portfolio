@@ -26,7 +26,7 @@ let ProjectImage = styled.div`
   box-sizing: border-box;
   min-width: 300px;
   background-image: url(${props => props.src});
-  background-position: top;
+  background-position: ${props => props.position};  
   background-size: cover;
   box-shadow: inset 3px -2px 8px 6px #00000020;
   width: 100%;
@@ -70,7 +70,7 @@ ${ProjectImage}:hover &${this}{
 function Project(props){
   return(
     <ProjectOutline>
-      <ProjectImage src ={props.imgSrc} >
+      <ProjectImage src ={props.imgSrc} position={props.backgroundPosition || "top"}>
         <TextBox>
           {props.children}
         </TextBox>

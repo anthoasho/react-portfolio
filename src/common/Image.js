@@ -14,7 +14,6 @@ function Image(props){
 }
 let Img = styled.img`
   width: 100%;
-  margin-top: -30px;
 `
 let ImgCircleContainer = styled.div`
   width: 250px ;
@@ -25,7 +24,6 @@ let ImgCircleContainer = styled.div`
   box-shadow: 3px 1px 7px 2px #0000009f;
   top: 0;
   right: -50%;
-  transition: opacity 0.3s ease;
   opacity: ${props => props.condition ? "0" : "1"};
   @media only screen and (max-width: 800px) {
       width: 200px;

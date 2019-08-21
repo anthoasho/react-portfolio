@@ -27,13 +27,12 @@ background-position: center;
 transform: ${props => props.hover ? "scale(1.2)" : "scale(1)"};
 transition: all 1s ease;
 opacity: ${props => props.hover ? "0.7" : "1"};
-zIndex: 0;
+z-index: 1;
 
 `
 
 
 let Hover = styled.div`
-
 background: #00000044;
 width: 100%;
 height: 100%;
@@ -44,6 +43,7 @@ align-items: center;
 transition: 0.3s ease-in-out;
 opacity: ${props => props.hover ? 1 : 0};
 position: absolute;
+z-index: 5;
 `
 
 let Button = styled.a`
@@ -59,10 +59,12 @@ font-weight: bold;
 `
 
 let StyledP = styled.p`
-font-size: 20px,
-letter-spacing: 2px,
-z-index: 2
-
+font-size: 20px;
+letter-spacing: 2px;
+z-index: 10;
+color: white;
+position: absolute;
+bottom: 0;
 `
 
 
@@ -84,12 +86,12 @@ class SmallProject extends Component{
   render(){
     return(
         <OuterContainer onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}>
+        <StyledP> {this.props.children} </StyledP>
         <BackgroundImage hover={this.state.hover} src={this.props.src}>
         </BackgroundImage>
           <Hover hover={this.state.hover}>
             <Button href={this.props.href}> View </Button>
           </Hover>
-          <StyledP> {this.props.children} </StyledP>
         </OuterContainer>
     )
   }

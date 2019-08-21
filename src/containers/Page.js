@@ -44,6 +44,13 @@ class Page extends Component{
     })
   }
   render(){
+  const style = {
+    background: this.props.headerColor,
+    width: "100%",
+    marginTop: this.props.paddingTop ? "100vh" : "0",
+    boxShadow: "0px -1px 8px  #00000080",
+    width: 100
+  }
   return(
     <PageLayout backgroundColor ={this.props.backgroundColor} paddingTop={this.props.paddingTop}>
     <PageTitle onClick={this.props.openAction}> {this.props.title} </PageTitle>
@@ -69,8 +76,8 @@ let PageContents = styled.div`
               flex-wrap: wrap;
               max-width: 100%;
               width: 100%;
-              transition: all 0.45s ease;
-
+              opacity: ${props => props.isOpen ? 1: 0};
+              transition: min-height 1s cubic-bezier(0.645, 0.045, 0.355, 1),max-height 1s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.45s 0.3s ease;
               @media only screen and (max-width: 800px) {
 
               max-height: ${props => props.isOpen ? "calc(100vh - " + ((40*5) + 56).toString() +"px)" : "0"};

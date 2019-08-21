@@ -1,6 +1,10 @@
 import React ,{Component} from 'react';
 import Landing from "./Landing";
+import Project from "./Project";
+import SmallProject from "./SmallProject";
 import ProjectLayout from "./ProjectLayout";
+import Page from "./Page";
+import {colors} from "../common/Colors";
 import styled from "styled-components";
 import './App.css';
 const initialState = {
@@ -44,10 +48,11 @@ let Container = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: space-around;
-height: 100%;
-@supports (-webkit-appearance:none) {
-.os-android & {
-  min-height: calc(100vh - 56px);
+height: calc(100vh - ${60 * 4}px);
+@media only screen and (max-width: 800px){
+
+  height: calc(100vh - ${(60*5)}px);
+
 }
 `
 
